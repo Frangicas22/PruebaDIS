@@ -2,4 +2,5 @@ steps:
   # Subir archivos al bucket de Cloud Storage
   - name: 'gcr.io/cloud-builders/gsutil'
     args: ['-m', 'cp', '-r', 'app/*', 'gs://prueba-dis-cloud-build']
-
+# Especificar el mismo bucket para los logs
+logsBucket: 'gs://prueba-dis-cloud-build/cloud-build-logs/'
