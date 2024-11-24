@@ -1,0 +1,12 @@
+steps:
+  # Paso 1: Validar el código fuente
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'check']
+
+  # Paso 2: Subir archivos al bucket de Cloud Storage
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args: ['-m', 'cp', '-r', 'app/*', 'gs://prueba-dis-cloud-build']
+
+# Imagen generada (opcional, solo para registro)
+images:
+  - 'gcr.io/$PROJECT_ID/app-image'
